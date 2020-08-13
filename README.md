@@ -18,11 +18,13 @@ $ composer require --dev setono/sylius-behat-pack
     # platform options: linux32, linux64, mac64, win32
     PLATFORM=mac64
     VERSION=$(curl http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-    curl http://chromedriver.storage.googleapis.com/$VERSION/chromedriver_$PLATFORM.zip
+    cd /tmp
+    curl http://chromedriver.storage.googleapis.com/$VERSION/chromedriver_$PLATFORM.zip > chromedriver.zip
     unzip -o chromedriver.zip
     chmod +x chromedriver
     mv chromedriver /usr/local/bin/chromedriver
     rm chromedriver.zip
+    chromedriver -v
     ```
 
   * Run:
@@ -53,14 +55,16 @@ $ composer require --dev setono/sylius-behat-pack
 
     ```bash
     curl -sS https://get.symfony.com/cli/installer | bash
+    mv ~/.symfony/bin/symfony /usr/local/bin/symfony
+    symfony -v
     ```
 
   * Run webserver with test environment:
 
     ```bash
     # App
-    APP_ENV=test symfony server:start --port=8080
+    APP_ENV=test symfony server:start --port=8080 --daemon
 
     # Plugin
-    (cd tests/Application && APP_ENV=test symfony server:start --port=8080)
+    (cd tests/Application && APP_ENV=test symfony server:start --port=8080 --daemon)
     ```
