@@ -1,4 +1,4 @@
-# Code Quality Pack
+# Sylius Behat Pack
 
 A collection of libraries you need to run behat tests on Sylius plugin or app
 
