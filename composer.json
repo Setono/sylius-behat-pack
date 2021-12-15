@@ -1,8 +1,8 @@
 {
     "name": "setono/sylius-behat-pack",
-    "type": "library",
     "description": "A pack that installs everything you need to run behat tests on Sylius plugin or app",
     "license": "MIT",
+    "type": "library",
     "require": {
         "behat/behat": "^3.8",
         "behat/mink-selenium2-driver": "^1.4",
